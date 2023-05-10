@@ -1,0 +1,48 @@
+create table employees
+(employees_id int primary key,
+firstname varchar (20) not null,
+lastname varchar (20) not null,
+department_id int,
+foreign key (department_id) references departments (department_id)
+);
+
+
+create table departments
+(department_id int primary key,
+department_name varchar(30) not null
+);
+
+alter table employees
+add email varchar(50) unique;
+
+alter table employees
+add hire_date date default '2023-01-01'
+
+
+
+// ///////////////първи таск/////////////////////
+ALTER TABLE employees
+ADD Salary DECIMAL(10,2),
+ADD Previous_experience VARCHAR(10) CHECK (Previous_experience IN ('Yes', 'No'));
+
+
+
+// ////////////втория таск///////////////////
+ALTER TABLE departments
+ADD Manager_id INT,
+ADD Location VARCHAR(30);
+
+
+//////////////////трети таск////////////////////////////
+CREATE TABLE managers (
+Manager_id INT PRIMARY KEY,
+First_name VARCHAR(20) NOT NULL,
+Last_name VARCHAR(20) NOT NULL,
+Email VARCHAR(50) NOT NULL UNIQUE,
+Hire_date DATE NOT NULL
+);
+
+ADD CONSTRAINT fk_manager_dept
+FOREIGN KEY (Manager_id) REFERENCES departments (department_id);
+
+
