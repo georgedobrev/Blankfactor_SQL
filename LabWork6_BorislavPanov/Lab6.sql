@@ -33,8 +33,6 @@ ORDER BY avg_population ASC;
 
 -- Task 4
 
-SELECT * FROM countrylanguage c;
-
 SELECT
 	c.Code,
 	c.Name,
