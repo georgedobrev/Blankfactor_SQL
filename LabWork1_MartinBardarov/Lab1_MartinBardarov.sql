@@ -32,8 +32,8 @@ CREATE TABLE IF NOT EXISTS managers (
     first_name varchar(255) not null,
     last_name varchar(255) not null,
     email varchar(255) not null unique,
-    hire_date date not null,
-    foreign key (manager_id) references departments (department_id)
+    hire_date date not null
 );
 
+alter table departments add foreign key (manager_id) references managers(manager_id);
 
