@@ -1,0 +1,12 @@
+(((((TASK 1)))))
+update employees
+set department_id = 789
+where employees_id  =6
+;
+ ((((((TASK 2))))))
+commit;
+update employees
+set department_id = 789
+where employees_id  = 4;
+set salary = 120
+rollback;
