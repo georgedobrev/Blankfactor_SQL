@@ -15,7 +15,7 @@ where Name in ('Andorra', 'Barbados', 'Yemen', 'Vietnam', 'Poland');
 
 select *
 from country
-where GovernmentForm is not null and Continent not in ('South America', 'North America');
+where GovernmentForm = 'Republic' and Continent not in ('South America', 'North America');
 
 
 
