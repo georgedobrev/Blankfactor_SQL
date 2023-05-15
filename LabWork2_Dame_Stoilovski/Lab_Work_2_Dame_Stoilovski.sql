@@ -15,8 +15,7 @@ where Name in ('Andorra', 'Barbados', 'Yemen', 'Vietnam', 'Poland');
 
 select *
 from country
-where GovernmentForm = 'Republic' and Continent not in ('South America', 'North America');
-
+where GovernmentForm like '%Republic%' and Continent not in ('South America', 'North America');
 
 
 #TASK 2
