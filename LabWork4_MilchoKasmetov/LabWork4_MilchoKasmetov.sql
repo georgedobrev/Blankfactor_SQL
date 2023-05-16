@@ -4,11 +4,12 @@ select count(*) as TotalCountries_With_Independence_After_1970 from country c
 where c.IndepYear >= 1970;
 
 
-select count(c.Continent) as TotalContinents from country c 
+select count(DISTINCT c.Continent) as TotalContinents from country c 
 
 
-select SUM(c.SurfaceArea) as TotalSurfaceArea from country c 
-where c.Continent in ('Europe')
+select round( SUM(c.SurfaceArea)) as TotalSurfaceArea from country c 
+group by c.Continent in ('Europe')
+
 
 
 select c.Name ,c.SurfaceArea  from country c 
