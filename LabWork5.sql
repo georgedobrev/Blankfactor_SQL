@@ -4,7 +4,8 @@
 
 select Name 
 ,ifnull(LifeExpectancy,'N/A') as Life_Expectancy
-from country ;
+from country
+where Life_Expectancy is null;
 
 -- Task 2:
 
