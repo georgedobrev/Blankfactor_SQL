@@ -9,6 +9,8 @@ alter table departments
 add Manager_id int,
 add Location varchar(255) ;
 
+
+#TASK3
 create table if not exists managers
 (
 Manager_id int primary key,
