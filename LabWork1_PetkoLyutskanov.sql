@@ -1,10 +1,10 @@
 alter table employees
-add salary decimal(10,2) not null,
-add previous_experience enum('Yes', 'No') not null;
+add salary decimal(10,2),
+add previous_experience enum('Yes', 'No');
 
 alter table departments
-add manager_id int not null,
-add location varchar(255) not null;
+add manager_id int,
+add location varchar(255);
 
 create table if not exists managers
 (
