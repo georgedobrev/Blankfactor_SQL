@@ -92,6 +92,10 @@ create table if not exists employees
  
  
  );	
+-- ALTER TABLE employees(
+-- ADD salary float,
+-- ADD previous_experience ENUM("yes","no)");
+
 
 -- Task 2
 -- In the existing departments table add the following columns considering their proper data types and constraints (if needed):
@@ -106,6 +110,10 @@ location varchar(255),
 manager_id int,
 foreign key(manager_id) references managers(manager_id)
 );
+-- ALTER TABLE departments(
+-- ADD manager_id,
+-- ADD location varchar(255)
+-- add foreign key (manager_id) references managers(manager_id));
 
 -- Task 3
 -- Create a new table called managers with the following fields:
