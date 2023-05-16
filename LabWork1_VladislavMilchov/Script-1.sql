@@ -15,9 +15,9 @@ department_name varchar(255) not null,
 primary key (department_id)
 );
 
-alter table employees add column salary decimal(10,2) not null;
+alter table employees add column salary decimal(10,2);
 
-alter table employees add column previous_experience enum('yes','no') not null;
+alter table employees add column previous_experience enum('yes','no');
 
 alter table departments
 add manager_id int,
