@@ -16,10 +16,9 @@ inner join country c2 on c1.countryCode = c2.code
 group by c2.name order by avg_city_population asc; 
 
 select
-c1.name, sum(c2.IsOfficial) as num_official_lang
+c1.name, count(c2.IsOfficial) as num_official_lang
 from country c1
-left join countrylanguage c2 on c1.code = c2.countryCode
-where c2.IsOfficial = "T"
+left join countrylanguage c2 on c1.code = c2.countryCode and c2.IsOfficial = 'T'
 group by c1.name 
 having num_official_lang >= 3
 order by num_official_lang desc;
