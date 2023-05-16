@@ -10,14 +10,16 @@ create table if not exists employees
 first_name varchar(255) not null,
 last_name varchar(255) not null,
 department_id int,
-email varchar(255) unique,
-hire_date date default '2023-01-01',
+email varchar(255) not null unique,
+hire_date date not null,
 foreign key (department_id) references departments (department_id)
 );
 
 alter table employees
-add salary decimal(7,2),
-add previous_experience ENUM("yes", "NO");	
+add salary decimal(7,
+2),
+add previous_experience ENUM("yes",
+"NO");
 
 alter table departments
 add manager_id int,
@@ -28,8 +30,6 @@ create table if not exists managers
 (manager_id int primary key,
 first_name varchar(255) not null,
 last_name varchar(255) not null,
-email varchar(255) unique,
-hire_date date default '2023-01-01' not null
+email varchar(255) not null unique,
+hire_date date not null
 );
-drop table employees ;
-drop table departments ;
