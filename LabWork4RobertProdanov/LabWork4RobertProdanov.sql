@@ -30,7 +30,7 @@ LIMIT 3;
 SELECT ROUND(Avg(Population), 1) AS Population , CountryCode  
 FROM city 
 GROUP BY CountryCode 
-ORDER BY Population  desc;
+ORDER BY Population  asc;
 
 /*Task6*/
 select District, sum(Population) as district_population 
