@@ -5,5 +5,5 @@ select * from country where Continent not in ('South America','North America') a
 
 select * from country where LifeExpectancy between 60 and 70;
 select * from country where LifeExpectancy > 70;
-select distinct Region from country;
+select distinct Region, count(*) as num_region from country group by Region;
 select * from country order by SurfaceArea asc limit 1; 
