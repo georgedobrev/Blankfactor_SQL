@@ -42,14 +42,14 @@ where Name = 'Andorra' or Name = 'Barbados' or Name ='Yemen' or Name ='Vietnam' 
 
 select *
 from country 
-where GovernmentForm = 'Republic' and (Continent != 'South America' and Continent != 'North America')
+where GovernmentForm like ('Republic')
 ;
 
 -- Task 2
 
 select *
 from country 
-where LifeExpectancy > 60 and LifeExpectancy <70
+where LifeExpectancy between 60 and 70
 ;
 
 select *
