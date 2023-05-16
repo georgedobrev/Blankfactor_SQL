@@ -13,12 +13,10 @@ select Name, ifnull(LifeExpectancy, 'N/A') as LifeExpectancy from country where 
 
 #TASK2
 
-select name, surfacearea 
-(
+select name, SurfaceArea,
 if(SurfaceArea > 1000000, 'Large country',
 if(SurfaceArea between 50000 and 1000000, 'Medium country',
-if(SurfaceArea between 20000 and 50000, 'Small country','Extra small country'))),
-)
+if(SurfaceArea between 20000 and 50000, 'Small country','Extra small country')))
 as CountrySize from country ;
 
 
