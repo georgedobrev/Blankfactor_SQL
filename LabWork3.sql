@@ -19,3 +19,8 @@ set salary = 120
 where employee_id  = 4;
 
 commit;
+
+UPDATE employees
+SET department_id = 789
+WHERE employee_id = 4;
+COMMIT;
