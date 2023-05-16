@@ -1,10 +1,10 @@
 use employees_test_hristochipev;
 
-alter table employees add salary decimal(10,2) not null;
-alter table employees add previous_experience enum('yes','no') not null;
+alter table employees add salary decimal(10,2);
+alter table employees add previous_experience enum('yes','no');
 
-alter table departments add manager_id int not null;
-alter table departments add location varchar(255) not null;
+alter table departments add manager_id int;
+alter table departments add location varchar(255);
 
 create table managers (
 manager_id int primary key,
