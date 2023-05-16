@@ -1,20 +1,3 @@
-select count(name)
-from country;
-select count(distinct name)
-from country;
-select count(indepyear)
-from country;
-select count(*)
-from country;
-
-select language
-from countrylanguage
-group by `Language` ;
-
-select * from countrylanguage;  
-
-select distinct language
-from countrylanguage ;
 
 #TASK1
 
@@ -22,7 +5,7 @@ select count(*) from country  where IndepYear >= 1970;
 
 #TASK2
 
-select count(Continent) from country;
+select count(distinct Continent) from country;
 
 #Task3
 
@@ -30,7 +13,7 @@ select sum(SurfaceArea) from country where Continent = 'Europe';
 
 #TASK4
 
-select Name,SurfaceArea  from country order by SurfaceArea desc limit 3;
+select Continent, round(sum(SurfaceArea)) as continentSize  from country group by Continent order by continentSize desc limit 3;
 
 #TASK5
 
