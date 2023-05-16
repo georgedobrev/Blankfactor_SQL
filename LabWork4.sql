@@ -20,10 +20,13 @@ limit 3;
 
 -- 5
 
-select countryCode, round(avg(population)
+select countryCode, round(avg(population)) AS average_city_population
+FROM city
+GROUP BY CountryCode
+ORDER BY average_city_population
 
 -- 6
-select countryCode, round(avg(population) as district_population
+select district, sum(population) AS district_population
 from city 
 where CountryCode  = 'NLD'
 group by District 
