@@ -12,6 +12,7 @@ from country where Continent = 'Europe';
 select Continent, round(sum(SurfaceArea)) as continentSize
 from country
 group by Continent 
+order by continentSize desc
 limit 3;
 
 select CountryCode  , round(avg(population)) as avg_population
