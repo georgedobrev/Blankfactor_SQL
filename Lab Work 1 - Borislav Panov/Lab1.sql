@@ -9,7 +9,7 @@ add Location varchar(255);
 
 create table if not exists managers 
 (
-Manager_id int unique,
+Manager_id int PRIMARY KEY,
 First_name varchar(255) not null,
 Last_name varchar(255) not null,
 Email varchar(255) unique not null,
