@@ -8,8 +8,8 @@ alter table departments add column location varchar(255);
 
 create table if not exists managers 
 (manager_id int primary key,
-first_name varchar(255),
-last_name varchar(255),
+first_name varchar(255) not null,
+last_name varchar(255) not null,
 email varchar(255) not null unique,
 hire_date date not null
 );
