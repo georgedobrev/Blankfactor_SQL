@@ -1,7 +1,8 @@
 select 
-LifeExpectancy,
+Name,
 ifnull(LifeExpectancy, 'N/A') as LifeExpectancyNew
-from country;
+from country
+where  LifeExpectancy is null;
 
 select 
 SurfaceArea
