@@ -1,18 +1,14 @@
-select * from country c where Continent = 'Asia';
-
-select * from country c
-where Continent = 'Asia'
-or Continent = 'Africa'
-and Population > 100000000;
+use world 
 
 select * from country c 
-where name = 'Andorra'
-or name = 'Barbados'
-or name = 'Yemen'
-or name = 'Vietnam'
-or name = 'Poland';
+where Continent = 'Asia';
 
-select GovernmentForm  from country c 
-where not Continent = 'North America'
-and not Continent = 'South America'
-and not GovernmentForm like '%Republic%';
+select * from country c 
+where Continent  in ('Africa', 'Asia') and Population > 100000000;
+
+select * from country c 
+where Name in ('Andorra', 'Barbados', 'Yemen', 'Vietnam', 'Poland.');
+
+select * from country c 
+where Continent not in ('South America', 'North America') and GovernmentForm like('%republic%');
+
