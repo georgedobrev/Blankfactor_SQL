@@ -27,7 +27,7 @@ SELECT
 	c2.Name AS country_name
 FROM city c
 INNER JOIN country c2 ON c2.Code = c.CountryCode
-GROUP BY c.CountryCode, c2.Name, c.Name
+GROUP BY c.CountryCode, c2.Name
 ORDER BY avg_population ASC;
 
 
