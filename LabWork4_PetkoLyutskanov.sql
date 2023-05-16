@@ -1,9 +1,9 @@
 select count(*) as num_countries_with_independence_after_1970 from country
 where IndepYear >= 1970;
 
-select count(Continent) as num_continents from country;
+select count(distinct Continent) as num_continents from country;
 
-select sum(SurfaceArea) as europe_surface_area from country where Continent = "Europe";
+select sum(SurfaceArea) as europe_surface_area from country where Continent = 'Europe';
 
 select Continent, round(sum(SurfaceArea)) as continent_surface_area 
 from country as c
