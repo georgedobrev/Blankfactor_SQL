@@ -1,48 +1,34 @@
-create table employees
-(employees_id int primary key,
-firstname varchar (20) not null,
-lastname varchar (20) not null,
+create table if not exists departments
+(department_id int primary key,
+department_name varchar(255) not null
+);
+
+create table if not exists employees
+(employee_id int primary key,
+first_name varchar(255) not null,
+last_name varchar(255) not null,
 department_id int,
+email varchar(255) unique,
+hire_date date default '2023-01-01',
 foreign key (department_id) references departments (department_id)
 );
 
-
-create table departments
-(department_id int primary key,
-department_name varchar(30) not null
-);
-
 alter table employees
-add email varchar(50) unique;
-
-alter table employees
-add hire_date date default '2023-01-01'
+add salary decimal(7,2),
+add previous_experience ENUM("yes", "NO");
 
 
-
-// ///////////////първи таск/////////////////////
-ALTER TABLE employees
-ADD Salary DECIMAL(10,2),
-ADD Previous_experience VARCHAR(10) CHECK (Previous_experience IN ('Yes', 'No'));
+alter table departments
+add manager_id int,
+add location varchar(255),
+add foreign key (manager_id) references managers (manager_id);
 
 
 
-// ////////////втория таск///////////////////
-ALTER TABLE departments
-ADD Manager_id INT,
-ADD Location VARCHAR(30);
-
-
-//////////////////трети таск////////////////////////////
-CREATE TABLE managers (
-Manager_id INT PRIMARY KEY,
-First_name VARCHAR(20) NOT NULL,
-Last_name VARCHAR(20) NOT NULL,
-Email VARCHAR(50) NOT NULL UNIQUE,
-Hire_date DATE NOT NULL
+create table if not exists managers
+(manager_id int primary key,
+first_name varchar(255) not null,
+last_name varchar(255) not null,
+email varchar(255) unique,
+hire_date date default '2023-01-01' not null
 );
-
-ADD CONSTRAINT fk_manager_dept
-FOREIGN KEY (Manager_id) REFERENCES departments (department_id);
-
-
