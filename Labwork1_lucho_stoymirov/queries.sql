@@ -1,12 +1,13 @@
  
-Create table employees_lucho_stoymirov.employees(
-Salary int,
-Previous_expirience enum("Yes", "No"));
+alter table employees_lucho_stoymirov.employees
+add Salary decimal(10,2)
+add Previous_expirience enum("Yes", "no");
 
 
-Create table employees_lucho_stoymirov.departments(
-Manager_id int not null primary key,
-Location varchar(255));
+
+alter table employees_lucho_stoymirov.departments
+add Manager_id int
+add Location varchar(255);
 
 
 create table employees_lucho_stoymirov.managers(
