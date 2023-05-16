@@ -1,12 +1,12 @@
 --Task1 
 
-select count(*)
-from country as count_contries_after_1970
+select count(*) as count_contries_after_1970
+from country
 where IndepYear >= 1970;
 
 --Task2 
 
-select count(Continent) as num_continents 
+select count(distinct Continent) as num_continents 
 from country;
 
 --Task3 
