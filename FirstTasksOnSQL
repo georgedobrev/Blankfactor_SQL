@@ -29,6 +29,6 @@ create table if not exists managers
 (manager_id int primary key,
 first_name varchar(255) not null,
 last_name varchar(255) not null,
-email varchar(255) unique,
-hire_date date default '2023-01-01' not null
+email varchar(255) unique not null,
+hire_date date '2023-01-01' not null
 );
