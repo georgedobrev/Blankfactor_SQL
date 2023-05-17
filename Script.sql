@@ -8,7 +8,7 @@ select gnPold, GNP, coalesce (GNPold, GNP, 0) as GNPnew from country;
 
 #TASK1
 
-select Name, ifnull(LifeExpectancy, 'N/A') as LifeExpectancy from country where LifeExpectancy = 'N/A'; 
+select Name, ifnull(LifeExpectancy, 'N/A') as LifeExpectancy from country where LifeExpectancy is null; 
 
 
 #TASK2
