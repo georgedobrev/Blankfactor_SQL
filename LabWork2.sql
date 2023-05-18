@@ -40,10 +40,10 @@ from country
 where Name = 'Andorra' or Name = 'Barbados' or Name ='Yemen' or Name ='Vietnam' or Name = 'Poland'
 ;
 
-select *
+select * 
 from country 
-where GovernmentForm like ('Republic')
-;
+where Continent not in ('South America','North America') 
+and GovernmentForm like('%republic%');
 
 -- Task 2
 
