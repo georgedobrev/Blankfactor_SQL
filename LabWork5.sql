@@ -3,9 +3,9 @@
 -- Write a query to retrieve information about the countries with not available life expectancy values. Replace the missing values with ‘N/A‘.
 
 select Name 
-,ifnull(LifeExpectancy,'N/A') as Life_Expectancy
+,ifnull(LifeExpectancy,'N/A') as LifeExpectancy
 from country
-where Life_Expectancy is null;
+where LifeExpectancy is null;
 
 -- Task 2:
 
