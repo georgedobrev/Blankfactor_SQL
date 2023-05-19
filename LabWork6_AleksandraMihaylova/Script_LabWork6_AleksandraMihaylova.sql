@@ -2,7 +2,7 @@ select c.Name, c.CountryCode, c2.Name, c2.Continent
 from city c 
 inner join country c2 on c2.Code = c.CountryCode;
 
-select c.Name, c.CountryCode, c2.Name, c2.Continent 
+select c.Name as city_name, c.CountryCode, c2.Name as country_name, c2.Continent 
 from city c 
 inner join country c2 on c2.Code = c.CountryCode
 where c2.Continent = 'Europe'
