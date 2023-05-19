@@ -1,7 +1,7 @@
 -- Task 1
 
 SELECT
-*
+employee_id, first_name, last_name, email, hire_date, department_id, Salary, Previous_experience 
 FROM employees
 UNION
 SELECT
@@ -26,8 +26,6 @@ WHERE CountryCode IN(
 
 SELECT
 	c.Name,
-	c.Continent,
-	c.Code,
 	e.TotalPopulation
 FROM
 	country c
@@ -40,7 +38,11 @@ JOIN
 			city c2
 		GROUP BY
 			CountryCode
-	) AS e ON c.Code = e.CountryCode HAVING totalpopulation > 1000000 ORDER BY totalpopulation desc;
+		HAVING 
+			SUM(Population) > 1000000 
+	) AS e ON c.Code = e.CountryCode 
+ORDER BY 
+	e.totalpopulation desc;
 
 
 
