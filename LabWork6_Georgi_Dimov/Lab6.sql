@@ -1,6 +1,6 @@
 --Task1
 
-select c.Name, c.CountryCode, c2.Name, c2.Continent 
+select c.Name as city_name, c.CountryCode, c2.Name as country_name, c2.Continent 
 from city c 
 inner join country c2 
 on c2.Code = c.CountryCode 
@@ -8,7 +8,7 @@ on c2.Code = c.CountryCode
 
 --Task2
 
-select c.Name, c.CountryCode, c2.Name, c2.Continent 
+select c.Name as city_name, c.CountryCode, c2.Name as country_name, c2.Continent 
 from city c 
 inner join country c2 
 on c2.Code = c.CountryCode 
@@ -28,7 +28,7 @@ order by avarage_city_population asc
 
 --Task4
 
-select c.Name, count(cl.IsOfficial) as count_of_official_languages
+select c.Name as country_name, count(cl.IsOfficial) as count_of_official_languages
 from country as c
 inner join countrylanguage as cl
 on cl.CountryCode = c.Code
