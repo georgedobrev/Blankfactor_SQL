@@ -13,12 +13,13 @@ from city where countryCode in (
 )
 
 select 
-*
+c1.name, c1.Population
 from country c1 
 where c1.code in (
 select 
 countryCode
-from city c2 
+from city
 group by countryCode
-having sum(c2.population) > 1000000 
-);
+having sum(population) > 1000000 
+)
+order by c1.Population desc;
