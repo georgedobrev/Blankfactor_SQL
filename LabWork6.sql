@@ -2,7 +2,7 @@
 
 -- Write a query to retrieve information about cities in the world database, including their country code, country name 
 -- and continent. Include only the values that are present in both datasets (city and country tables).
-select city.Name ,city.CountryCode, city.Population ,country.Name,country.Continent 
+select city.Name as City ,city.CountryCode as Country_Code, country.Name as Country, country.Continent as Continent 
 from city 
 inner join country on city.CountryCode  = Country.Code ;
 
@@ -11,7 +11,7 @@ inner join country on city.CountryCode  = Country.Code ;
 
 -- Write a query based on the previous one but only for the countries in Europe and order the result alphabetically by 
 -- the city.
-select city.Name, city.CountryCode, country.Continent 
+select city.Name as City ,city.CountryCode as Country_Code, country.Name as Country, country.Continent as Continent 
 from city 
 inner join country on city.CountryCode = Country.Code
 where country.Continent  = 'Europe'
