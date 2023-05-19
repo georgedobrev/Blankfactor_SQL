@@ -1,35 +1,34 @@
-select count(name) 
+select count(*) as IndependenceAfter
 from country
 where IndepYear >=1970
 
-select count(distinct continent)
+select count(distinct continent) as TotalContinent
 from country;
 
-
-select sum(surfacearea)
+select sum(surfacearea) as TotalSurfaceArea
 from country
-where Region;
+where continent = 'Europe';
 
 select 
 Continent
-, sum(SurfaceArea) 
+, round(sum(SurfaceArea)) as Size
 from country
 group by Continent 
-order by sum(SurfaceArea) desc limit 3;
+order by Size desc limit 3;
 
 select 
 CountryCode  
-, avg(population)
+, round(avg(Population)) as AvgPopulation
 from city
 group by CountryCode
-order by avg(Population) asc;
+order by AvgPopulation asc;
 
 select 
 District
-, sum(Population) as District_population
+, sum(Population) as DistrictPopulation
 from city
-where CountryCode = 'nld'
+where UPPER(CountryCode) = 'NLD'
 group by District 
-having District_population > 1000000;
+having DistrictPopulation > 1000000;
 
 
