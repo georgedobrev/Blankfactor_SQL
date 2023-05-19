@@ -2,7 +2,7 @@
 
 -- Write a query to retrieve information about cities in the world database, including their country code, country name 
 -- and continent. Include only the values that are present in both datasets (city and country tables).
-select city.Name ,city.CountryCode ,country.Continent 
+select city.Name ,city.CountryCode, city.Population ,country.Name,country.Continent 
 from city 
 inner join country on city.CountryCode  = Country.Code ;
 
@@ -14,7 +14,8 @@ inner join country on city.CountryCode  = Country.Code ;
 select city.Name, city.CountryCode, country.Continent 
 from city 
 inner join country on city.CountryCode = Country.Code
-where country.Continent  = 'Europe';
+where country.Continent  = 'Europe'
+order by city.Name;
 
 
 -- Task 3:
@@ -35,7 +36,7 @@ order by Average_City_Population asc;
 -- List the name of the country as well as the number of official languages spoken. Present only the countries that 3
 --  or more official languages are present and order the result properly.
 
-select country.Name  , sum(countrylanguage.IsOfficial) as Number_Of_Official_Languages
+select country.Name  , count(countrylanguage.IsOfficial) as Number_Of_Official_Languages
 from country 
 left join countrylanguage on country.Code = countrylanguage.CountryCode 
 where countrylanguage.IsOfficial  = "T"
