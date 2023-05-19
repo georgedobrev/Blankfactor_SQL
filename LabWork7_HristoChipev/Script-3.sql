@@ -12,14 +12,14 @@ from city where countryCode in (
 (select code from country where continent = "Europe")
 )
 
-select 
-c1.name, c1.Population
-from country c1 
+select c1.name, sum(c2.population) as population_sum
+from country c1
+join city c2 on c1.code = c2.countryCode
 where c1.code in (
-select 
-countryCode
-from city
-group by countryCode
-having sum(population) > 1000000 
+    select countryCode
+    from city
+    group by countryCode
+    having sum(population) > 1000000
 )
-order by c1.Population desc;
+group by c1.name
+order by population_sum desc;
