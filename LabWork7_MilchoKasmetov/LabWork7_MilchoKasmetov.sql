@@ -20,7 +20,7 @@ select c.Name ,c.District ,c.CountryCode  from city c
 where CountryCode in (select c2.Code  from country c2 where c2.Continent in ('Europe')) 
 
 
-select c.Name ,c.Population  from country c 
+select c.Name ,sum(c2.population) as population_sum  from country c 
 where c.Code in (select c2.CountryCode  from city c2
 group by c2.CountryCode
 having sum(c2.Population) > 1000000);
