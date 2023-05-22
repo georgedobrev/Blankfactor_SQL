@@ -12,15 +12,11 @@ select co.Code from country as co
 where co.Continent = 'Europe'
 );
 
-select co.Code, co.Name, sum(c.Population) as cities_population
-from country as co
-join city as c
-on co.Code = c.CountryCode
-where co.Code in (
-	select c.CountryCode
-	from city as c
-	group by c.CountryCode
-	having sum(c.Population) > 1000000
-)
-group by co.code, co.Name
-order by cities_population desc;
+SELECT co.Name, sum(c.Population) AS cities_population
+FROM country AS co
+JOIN city AS c
+ON co.Code = c.CountryCode
+GROUP BY co.Code, co.Name
+HAVING cities_population > 1000000
+ORDER BY cities_population DESC;
+
