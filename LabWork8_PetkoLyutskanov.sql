@@ -14,20 +14,18 @@ cte2 as
 )
 select e.first_name, e.salary, cte1.avg_salary, cte2.avg_hr_department_salary
 from employees as e
-join departments as d
-on e.department_id = d.department_id
 join cte1 on e.department_id = cte1.department_id
 cross join cte2;
 
 # task 2
 
 create temporary table temp_department
-select d.department_name, d.location, m.first_name, m.last_name from departments as d
+select d.department_name, d.location, concat(m.first_name, ' ', m.last_name) as manager_fullname from departments as d
 join managers as m
 on d.manager_id = m.manager_id;
 
 create or replace view view_department as
-select d.department_name, d.location, m.first_name, m.last_name
+select d.department_name, d.location, concat(m.first_name, ' ', m.last_name) as manager_fullname
 from departments as d
 join managers as m
 on d.manager_id = m.manager_id;
