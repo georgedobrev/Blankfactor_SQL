@@ -127,7 +127,10 @@ where c.CountryCode = c2.Code and c2.Continent = 'Europe'
 
 #TASK3
 
-select * from country c where c.Code In (select c2.CountryCode 
- from city c2 group by c2.CountryCode having sum(c2.Population) > 1000000 order by c2.Population asc ) ;
+select c.Name, sum(c.Population) as Country_Population  from country c join city c3 
+on c3.CountryCode = c.Code  where c.Code In 
+(select c2.CountryCode 
+ from city c2 group by c2.CountryCode having sum(c2.Population) > 1000000 ) 
+ group by c.Name order by Country_Population asc; 
 
 
