@@ -68,6 +68,28 @@ from avg_salary_all es, departments d
 cross join employee_salary gs
 cross join avg_salary_hr hrs;
 
+#without cross joining
+with avg_salary_all as (
+select 
+e.employee_id,
+avg(e.Salary) as avg_salary
+from employees e 
+group by e.employee_id 
+),
+avg_salary_hr as (
+select avg(e1.Salary) as avg_hr_salary from employees e1
+where e1.department_id  = 789
+),
+employee_salary as (
+select e2.employee_id, e2.first_name , e2.last_name, e2.Salary  from employees e2 
+)
+select
+es.avg_salary, gs.first_name , gs.last_name, gs.salary, es.avg_salary, hrs.avg_hr_salary 
+from avg_salary_all es join 
+  employee_salary gs on es.employee_id = gs.employee_id
+ join avg_salary_hr hrs ;
+
+
 
 #TASK2
 
