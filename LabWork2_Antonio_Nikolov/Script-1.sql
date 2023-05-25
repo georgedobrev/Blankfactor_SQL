@@ -6,12 +6,12 @@ where Continent = 'Asia';
 
 select *
 from country
-where Continent = 'Asia'and Population > 100000000;
+where (Continent = 'Asia' or Continent = 'Africa') and Population > 100000000;
 
 
 select *
 from country
-where Name in ("Andorra", "Barbados", "Yemen", "Vietnam", "Poland");
+where Name in ('Andorra', 'Barbados', 'Yemen', 'Vietnam', 'Poland');
 
 
 select *
@@ -30,7 +30,10 @@ select *
 from country
 where LifeExpectancy > 70;
 
-select distinct Region from country;
+select distinct Region,
+count(*) as num_region
+from country
+group by Region;
 
 select *
 from country 
