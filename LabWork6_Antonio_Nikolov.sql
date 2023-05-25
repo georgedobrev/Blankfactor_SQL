@@ -9,10 +9,10 @@ where country.continent = 'Europe'
 order by city.name asc;
 
 
-select country.name as countryname, avg(city.population) as avg_city_pop
+select c1.name as countryname, avg(city.population) as avg_city_pop
 from country c1
-join city on country.code = city.countrycode
-group by country.name
+join city on c1.code = city.countrycode
+group by c1.name
 order by avg_city_pop asc;
 
 
