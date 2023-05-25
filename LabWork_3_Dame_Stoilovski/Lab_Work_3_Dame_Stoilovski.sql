@@ -17,7 +17,10 @@ commit;
 select * from employees e 
 
 update employees 
-set salary = 120
+set salary = 120, department_id = 789
 where employee_id  = 4;
 
 commit;
+
+select * from departments d 
+select * from employees e 
