@@ -131,6 +131,6 @@ select c.Name, sum(c3.Population) as Country_Population  from country c join cit
 on c3.CountryCode = c.Code  where c.Code In 
 (select c2.CountryCode 
  from city c2 group by c2.CountryCode having sum(c2.Population) > 1000000 ) 
- group by c.Name order by Country_Population asc; 
+ group by c.Name order by Country_Population desc; 
 
 
