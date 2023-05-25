@@ -24,7 +24,7 @@ as CountrySize from country ;
 select name, surfaceArea,
 case  
 when surfacearea > 1000000 then 'Large country'
-when SurfaceArea between 50000 and 1000000 then 'Medium country'
+when SurfaceArea between 50001 and 1000000 then 'Medium country'
 when surfaceArea between 20000 and 50000 then 'Small country'
 else 'Extra small country'
 end as CountrySize from country ;
