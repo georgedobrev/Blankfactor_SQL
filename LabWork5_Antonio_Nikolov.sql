@@ -1,6 +1,7 @@
 select name,
 ifnull(lifeExpectancy,'N/A') as lifeExpectancy
 from country
+where lifexpectancy is null
 ;
 
 
@@ -12,3 +13,10 @@ case
 	else 'Extra small'
 end as surfacearea_country
 from country; 
+
+select name, SurfaceArea,
+  if(SurfaceArea  > 10000000, 'Large',
+        if(SurfaceArea > 50000, 'Medium',
+	      if(SurfaceArea  > 20000, 'Small',
+		'Extra Small'))) as 'CountriesSize'		
+from country;
