@@ -97,3 +97,8 @@ select d.department_name , d.Location , concat(m.first_name, ' ', m.last_name) a
 from departments d inner join managers m ;
 
 
+create temporary table temp_table as 
+select d.department_name , d.Location , concat(m.first_name, ' ', m.last_name) as manager_name
+from departments d inner join managers m ;
+
+
