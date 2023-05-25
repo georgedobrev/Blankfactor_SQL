@@ -37,10 +37,28 @@ order by AverageCityPopulation asc;
 
 select
 	c1.name
-	, sum(c2.IsOfficial) as NumberOfOfficialLanguages
+	, count(c2.IsOfficial) as NumberOfOfficialLanguages
 from country c1
 left join countrylanguage c2 on c1.code = c2.countryCode
 where c2.IsOfficial = "T"
 group by c1.name 
 having NumberOfOfficialLanguages >= 3
 order by NumberOfOfficialLanguages desc;
+
+select
+	c1.name
+	, sum(c2.IsOfficial) as NumberOfOfficialLanguages
+from country c1
+left join countrylanguage c2 on c1.code = c2.countryCode
+where c2.IsOfficial = "T"
+group by c1.name 
+having NumberOfOfficialLanguages >= 2
+order by NumberOfOfficialLanguages desc;
+
+
+
+
+
+
+
+
