@@ -24,9 +24,9 @@ from employees_duplicate
 use world;
 #TASK 2
 select 
-Name,
-District,
-CountryCode
+	Name
+	, District
+	, CountryCode
 from city
 where CountryCode in (
 	select code from country
@@ -34,12 +34,17 @@ where CountryCode in (
 )
 
 #TASK 3
-select *
+select 
+	c.Name as Country
+	, sum(c2.Population) as TotalCityPopulation
 from country c 
-where c.Code in (
-	select 
-		CountryCode
-	from city c2
-	group by CountryCode
-	having sum(c2.Population) > 1000000
-)
+join city c2 on c.Code = c2.CountryCode 
+group by c.Name 
+having TotalCityPopulation > 1000000
+order by TotalCityPopulation desc;
+	
+
+
+
+
+
