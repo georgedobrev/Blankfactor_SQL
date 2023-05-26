@@ -19,19 +19,19 @@ from employees as e
 join departments as d
 on e.department_id = d.department_id
 join cte1 on e.department_id = cte1.department_id
-cross join cte2
+join cte2
 ;
 
 --Task2
 
 create temporary table temp_department
-select d.department_name, d.location, m.first_name from departments as d
+select d.department_name, d.location, m.first_name, m.last_name from departments as d
 join managers as m
 on d.manager_id = m.manager_id
 ;
 
 create or replace view view_department as
-select d.department_name, d.location, m.first_name
+select d.department_name, d.location, m.first_name, m.last_name
 from departments as d
 join managers as m
 on d.manager_id = m.manager_id
