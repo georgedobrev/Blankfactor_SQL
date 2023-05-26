@@ -6,7 +6,7 @@ select count(IndepYear) from country
 where IndepYear >= 1970;
 
 #task 2:
-select distinct continent from country;
+select count(distinct continent) from country;
 
 #task 3:
 select sum(SurfaceArea) 
