@@ -4,8 +4,9 @@ use world;
 #task 1:
 select name, ifnull(LifeExpectancy , 'N/A') as LifeExpectancy 
 from country
-where isnull(nullif(lifeexpectancy, 'N/A'))
+where  lifeExpectancy is null
 order by name asc;
+
 
 #task 2:
 select name, SurfaceArea,
