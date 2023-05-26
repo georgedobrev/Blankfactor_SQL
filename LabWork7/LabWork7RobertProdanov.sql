@@ -22,7 +22,7 @@ select co.Name, sum(c.Population) as cities_population
 from country as co
 join city as c
 on co.Code = c.CountryCode
-where c2.Code in (
+where co.Code in (
 select c.CountryCode
 from city as c
 group by c.CountryCode
