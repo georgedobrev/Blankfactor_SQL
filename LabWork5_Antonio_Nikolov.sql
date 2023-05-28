@@ -1,7 +1,7 @@
 select name,
 ifnull(lifeExpectancy,'N/A') as lifeExpectancy
 from country
-where lifexpectancy is null
+where lifeExpectancy is null
 ;
 
 
