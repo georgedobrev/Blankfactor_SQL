@@ -17,10 +17,10 @@ order by avg_city_pop asc;
 
 
 select
-country.name, sum(countrylanguage.IsOfficial) as sum_official_lang
+country.name, count(countrylanguage.IsOfficial) as sum_official_lang
 from country 
-left join countrylanguage  on country.code = countrylanguage.countryCode
-where countrylanguage.IsOfficial = "T"
+inner join countrylanguage  on country.code = countrylanguage.countryCode
+where countrylanguage.IsOfficial = 'T'
 group by country.name 
 having sum_official_lang >= 3
 order by sum_official_lang desc;
