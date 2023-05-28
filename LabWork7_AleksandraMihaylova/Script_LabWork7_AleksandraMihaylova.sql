@@ -15,7 +15,6 @@ where c2.Continent = 'Europe'
 
 select c2.Name, sum(c.Population) as population_cities
 from country as c2
-join city as c
 on c2.Code = c.CountryCode
 where c2.Code in (
 select c.CountryCode
@@ -23,6 +22,5 @@ from city as c
 group by c.CountryCode
 having sum(c.Population) > 1000000
 )
-group by c2.code, c2.Name
 order by cities_population desc
 ;
