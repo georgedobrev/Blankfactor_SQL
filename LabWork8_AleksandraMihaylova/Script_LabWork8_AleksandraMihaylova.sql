@@ -18,8 +18,8 @@ select
     cte.avg_salary,
     cte2.avg_salary_hr
 from employees e
-cross join cte
-cross join cte2;
+join cte
+join cte2;
 
 
 select 
