@@ -30,7 +30,7 @@ select *
 from country
 where LifeExpectancy > 70;
 
-select distinct Region,
+select Region,
 count(*) as num_region
 from country
 group by Region;
