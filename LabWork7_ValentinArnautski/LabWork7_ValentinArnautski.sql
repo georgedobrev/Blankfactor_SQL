@@ -1,26 +1,44 @@
 USE employees_valentin;
 
-create table if not exists employees_duplicate(
-employee_id int, 
-first_name varchar(255), 
-last_name varchar(255)
-)
-
-select *
-from employees
-union
-select
-employee_id, first_name, last_name, null, null, null, null, null 
-from employees_duplicate;
+select 
+employee_id,
+first_name,
+last_name,
+email,
+hire_date,
+Salary,
+department_id 
+from employees e 
+union all
+select 
+employee_id,
+first_name,
+last_name,
+null as email,
+null as hire_date,
+null as Salary,
+null as department_id 
+from employees_duplicate  
 
 
 use world;
 
-select c.Name as City ,c.District,c.CountryCode  from city c
-where CountryCode in (select c2.Code  from country c2 where c2.Continent in ('Europe')) 
+select 
+	Name
+	, District
+	, CountryCode
+from city
+where CountryCode in (
+	select code from country
+	where continent = 'Europe'
+)
 
-
-select * from country c 
-where c.Code in (select c2.CountryCode  from city c2
-group by c2.CountryCode
-having sum(c2.Population) > 1000000);
+select 
+	c.Name as Country
+	, sum(c2.Population) as TotalCityPopulation
+from country c 
+join city c2 on c.Code = c2.CountryCode 
+group by c.Name 
+having TotalCityPopulation > 1000000
+order by TotalCityPopulation desc;
+	
