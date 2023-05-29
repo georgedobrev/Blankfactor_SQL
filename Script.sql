@@ -1,12 +1,4 @@
 
-select ifnull(IndepYear, 'N/A') as IndepYear from country ;
-
-select coalesce (indepyear, 'N/A') as IndepYear from country;
-
-select gnPold, GNP, coalesce (GNPold, GNP, 0) as GNPnew from country;
-
-
-
 #TASK1
 
 select Name, ifnull(LifeExpectancy, 'N/A') as LifeExpectancy from country where LifeExpectancy is null; 
@@ -28,5 +20,3 @@ when SurfaceArea between 50001 and 1000000 then 'Medium country'
 when surfaceArea between 20000 and 50000 then 'Small country'
 else 'Extra small country'
 end as CountrySize from country ;
-
-
