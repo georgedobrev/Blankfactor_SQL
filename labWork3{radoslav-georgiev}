@@ -1,0 +1,13 @@
+insert departments
+values
+(789, 'HR', 777, 'sofia');
+
+insert into employees
+value
+(6, 'radko', 'cekov', 789, 'fasdta@email.com', '2023-01-01', 200, 'yes');
+
+commit;
+
+update employees
+set department_id = 789 , salary = 120
+where employee_id = 4;
