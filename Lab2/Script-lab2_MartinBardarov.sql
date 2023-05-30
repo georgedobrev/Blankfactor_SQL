@@ -1,43 +1,14 @@
-use world;
 
-select *
-from country;
-
-select *
-from country
-where continent ='Asia';
-
-select *
-from country
-where continent ='Asia' or continent ='Africa' and Population >100000000 ;
+SELECT * FROM country WHERE Continent = 'Asia'; 
+SELECT * FROM country WHERE (Continent = 'Asia' OR Continent = 'Africa') AND Population > 100000000;
+SELECT * FROM country WHERE Name = 'Andorra' OR Name = 'Barbados' OR Name = 'Yemen' OR Name = 'Poland';
+SELECT * FROM country WHERE (Continent <> 'South America' AND Continent <> 'North America') AND GovernmentForm LIKE '%Republic%';
 
 
-select *
-from country
-where name in('Andorra', 'Barbados', 'Yemen', 'Vietnam','Poland');
-
-
-select *
-from country
-where name in('Andorra', 'Barbados', 'Yemen', 'Vietnam','Poland');
-
-select *
-from country
-where Continent not in('South America','North America') and GovernmentForm like('%republic%') ;
-
-
-select *
-from country
-where LifeExpectancy >=60 and LifeExpectancy <=70;
-
-
-select *
-from country
-where LifeExpectancy >70;
-
-select distinct Region from country ;
-
-select count(*) as NumberOfCountriesByRegion, Region from country group by Region;
-
-
-select * from country order by SurfaceArea asc limit 1; 
+ 
+SELECT * FROM country WHERE LifeExpectancy BETWEEN 60 AND 70;
+SELECT * FROM country WHERE LifeExpectancy > 70;
+SELECT DISTINCT Region, COUNT(*) AS NumRegions
+FROM country
+GROUP BY Region;
+SELECT * FROM country ORDER BY SurfaceArea ASC LIMIT 1; 
