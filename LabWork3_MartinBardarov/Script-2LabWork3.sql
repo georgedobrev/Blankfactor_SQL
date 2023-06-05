@@ -18,6 +18,7 @@ VALUES(666, 'Marto', 'Bardarov','marto@blankfactor.com', '2023-05-05' ,766, 2500
 
 
 UPDATE employees
+set department_id =766
 SET  salary=120
 WHERE employee_id=4;
 
